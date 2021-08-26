@@ -1,0 +1,49 @@
+@import "resolution";
+
+.hero_container {
+  background-image: url(/assets/home/coffee-cup-home.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 100px 24px;
+  border-radius: 12px;
+  margin-top: 90px;
+  max-height: 600px;
+  @media (min-width: $media-tablet) {
+    background-image: url(/assets/home/coffee-cup-home.jpg);
+  }
+  @media (min-width: $media-desktop) {
+    background-image: url(/assets/home/coffee-cup-home.jpg);
+  }
+}
+
+.hero_content {
+  @include flex-column-center;
+  color: var(--light-cream-100);
+  text-align: center;
+  max-width: 398px;
+  margin: 0 auto;
+  h1 {
+    font-size: var(--xl-header-fs);
+    margin-bottom: 24px;
+  }
+  p {
+    font-size: var(--lg-body-fs);
+    margin-bottom: 39px;
+  }
+  @media (min-width: 768px) {
+    align-items: flex-start;
+    text-align: left;
+    margin: 0 0 0 58px;
+  }
+  @media (min-width: $media-desktop) {
+    max-width: 498px;
+    h1 {
+      margin-bottom: 32px;
+    }
+    p {
+      max-width: 445px;
+      margin-bottom: 56px;
+    }
+  }
+}
