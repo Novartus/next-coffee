@@ -1,0 +1,44 @@
+@import "resolution";
+
+.container {
+  @include flex-column-center;
+  text-align: center;
+  margin-top: 90px;
+  color: var(--light-cream-100);
+  background-size: cover;
+  height: 400px;
+  border-radius: 12px;
+  @media (min-width: $media-tablet) {
+    align-items: flex-start;
+    text-align: left;
+    padding: 58px;
+  }
+  @media (min-width: $media-desktop) {
+    height: 450px;
+  }
+}
+
+.text_content {
+  // to lift the text above center
+  transform: translateY(-10%);
+  margin: 24px;
+  max-width: 398px;
+  h1 {
+    font-size: var(--xl-header-fs);
+    margin-bottom: 22px;
+  }
+  p {
+    font-size: var(--md-body-fs);
+  }
+  @media (min-width: $media-tablet) {
+  }
+  @media (min-width: $media-desktop) {
+    max-width: none;
+    h1 {
+      margin-bottom: 32px;
+    }
+    p {
+      max-width: 445px;
+    }
+  }
+}
