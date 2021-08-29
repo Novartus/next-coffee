@@ -104,7 +104,6 @@ footer {
   }
 }
 
-// buttons
 .button-primary {
   width: 217px;
   height: 56px;
@@ -132,4 +131,16 @@ footer {
   @media (min-width: $media-desktop) {
     background-image: url(/assets/shared/white-image.jpg);
   }
+}
+
+.alternate-title {
+  text-align: center;
+  background-image: linear-gradient(
+    0deg,
+    rgba(254, 252, 247, 1) 0%,
+    rgb(73, 77, 82) 100%
+  );
+  background-clip: text;
+  color: transparent;
+  opacity: 0.7;
 }

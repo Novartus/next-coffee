@@ -10,7 +10,7 @@ export const Navbar = () => {
       <Link href="/">
         <img
           className={styles.logo}
-          src=""
+          src="/assets/shared/logo.jpg"
           alt="coffee logo"
           width="236"
           height="26"
@@ -18,13 +18,17 @@ export const Navbar = () => {
       </Link>
 
       <div className={styles.link_container}>
-        <Link href="/">Home</Link>
-        <Link href="/about">About us</Link>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <Link href="/about">
+          <a> About us</a>
+        </Link>
       </div>
 
       {hamburgerClicked === true ? (
         <img
-          src=""
+          src="/assets/icons/hamburger-menu-close.svg"
           alt="hamburger icon"
           width="16"
           height="16"
@@ -33,7 +37,7 @@ export const Navbar = () => {
         />
       ) : (
         <img
-          src="/assets/shared/mobile/icon-hamburger.svg"
+          src="/assets/icons/hamburger-menu.svg"
           alt="hamburger icon"
           width="16"
           height="16"
@@ -47,8 +51,24 @@ export const Navbar = () => {
         style={hamburgerClicked ? { display: "block" } : { display: "none" }}
       >
         <div className={styles.menu_links_container}>
-          <Link href="/">Home</Link>
-          <Link href="/about">About us</Link>
+          <Link href="/">
+            <a
+              onClick={() => {
+                setHamburgerClicked(!hamburgerClicked);
+              }}
+            >
+              Home
+            </a>
+          </Link>
+          <Link href="/about">
+            <a
+              onClick={() => {
+                setHamburgerClicked(!hamburgerClicked);
+              }}
+            >
+              About us
+            </a>
+          </Link>
         </div>
       </div>
     </header>

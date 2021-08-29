@@ -11,6 +11,15 @@
   }
 }
 
+.logo {
+  max-width: 33px;
+  max-height: 218px;
+  @media (min-width: $media-tablet) {
+    max-width: 26px;
+    max-height: 236px;
+  }
+}
+
 .links_container {
   @include flex-column-center;
   font-size: var(--md-body-fs);

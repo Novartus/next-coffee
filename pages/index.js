@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Collection from "../Components/Collection";
 import Meta from "../Components/Meta";
+import CoffeeCollectionData from "../data/coffee";
 import styles from "../styles/Home.module.scss";
 
 const Home = () => {
@@ -18,6 +20,15 @@ const Home = () => {
             <Link href="/">
               <button className="button-primary">Find Out More</button>
             </Link>
+          </div>
+        </section>
+
+        <section className={styles.collection_container}>
+          <h2 className="alternate-title">Our Collection</h2>
+          <div className={styles.collection_card_container}>
+            {CoffeeCollectionData.data.map((coffee, key) => (
+              <Collection key={key} {...coffee} />
+            ))}
           </div>
         </section>
       </main>
