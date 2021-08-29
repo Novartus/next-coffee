@@ -47,3 +47,39 @@
     }
   }
 }
+
+.collection_container {
+  position: relative;
+  margin-bottom: 120px;
+  margin-top: 120px;
+  h2 {
+    font-size: var(--xl-header-fs);
+  }
+  @media (min-width: $media-tablet) {
+    margin-top: 203px;
+    h2 {
+      font-size: 96px;
+      z-index: -1;
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: -70px;
+    }
+  }
+  @media (min-width: $media-desktop) {
+    h2 {
+      font-size: 135px;
+      top: -100px;
+    }
+  }
+}
+
+.collection_card_container {
+  max-width: 1050px;
+  margin: 0 auto;
+  @media (min-width: $media-desktop) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

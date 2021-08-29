@@ -1,0 +1,52 @@
+@import "resolution";
+
+.container {
+  @include flex-column-center;
+  text-align: center;
+  margin-bottom: 48px;
+
+  img {
+    margin-bottom: 24px;
+  }
+  @media (min-width: $media-tablet) {
+    margin-bottom: 32px;
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    img {
+      margin: 12px 0px;
+    }
+  }
+  @media (min-width: $media-desktop) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 0 15px;
+    img {
+      margin: 0 0 71.55px 0;
+    }
+  }
+}
+
+.text_content {
+  max-width: 282px;
+
+  h3 {
+    font-size: var(--xs-header-fs);
+    margin-bottom: 16px;
+  }
+  p {
+    text-align: center;
+    font-size: var(--md-body-fs);
+  }
+  @media (min-width: $media-tablet) {
+    margin-left: 35px;
+    p {
+      margin-bottom: 24px;
+    }
+  }
+  @media (min-width: $media-desktop) {
+    margin-left: 0;
+    max-width: 255px;
+  }
+}
