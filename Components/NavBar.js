@@ -7,17 +7,19 @@ export const Navbar = () => {
 
   return (
     <header className={styles.container}>
-      <img
-        className={styles.logo}
-        src=""
-        alt="coffee logo"
-        width="236"
-        height="26"
-      />
+      <Link href="/">
+        <img
+          className={styles.logo}
+          src=""
+          alt="coffee logo"
+          width="236"
+          height="26"
+        />
+      </Link>
 
       <div className={styles.link_container}>
         <Link href="/">Home</Link>
-        <Link href="/">About us</Link>
+        <Link href="/about">About us</Link>
       </div>
 
       {hamburgerClicked === true ? (
@@ -46,7 +48,7 @@ export const Navbar = () => {
       >
         <div className={styles.menu_links_container}>
           <Link href="/">Home</Link>
-          <Link href="/">About us</Link>
+          <Link href="/about">About us</Link>
         </div>
       </div>
     </header>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Fraunces:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Fraunces:wght@900&display=swap");
 
 // Colors and Values
 
@@ -121,5 +121,15 @@ footer {
   }
   &:disabled {
     background-color: #e2dedb;
+  }
+}
+
+.white-image {
+  background-image: url(/assets/shared/white-image.jpg);
+  @media (min-width: $media-tablet) {
+    background-image: url(/assets/shared/white-image.jpg);
+  }
+  @media (min-width: $media-desktop) {
+    background-image: url(/assets/shared/white-image.jpg);
   }
 }
