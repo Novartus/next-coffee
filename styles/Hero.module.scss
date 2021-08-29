@@ -28,6 +28,8 @@
     margin-bottom: 22px;
   }
   p {
+    text-align: justify;
+    text-justify: inter-word;
     font-size: var(--md-body-fs);
   }
   @media (min-width: $media-tablet) {

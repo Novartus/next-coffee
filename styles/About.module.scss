@@ -1,1 +1,113 @@
 @import "resolution";
+
+.promise_container {
+  text-align: center;
+  padding: 0 24px;
+  margin-top: 120px;
+  @media (min-width: $media-tablet) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 70px;
+    text-align: left;
+  }
+  @media (min-width: $media-desktop) {
+    grid-column-gap: 125px;
+  }
+}
+
+.promise_image_box {
+  max-height: 400px;
+  margin-bottom: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  @media (min-width: $media-tablet) {
+    margin: 0;
+    max-height: none;
+    img {
+      border-radius: 12px;
+      margin: 0;
+    }
+  }
+}
+
+.promise_text_content {
+  h2 {
+    font-size: var(--md-header-fs);
+    margin-bottom: 30px;
+  }
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: var(--md-body-fs);
+  }
+  @media (min-width: $media-desktop) {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    h2 {
+      margin-bottom: 32px;
+    }
+  }
+}
+
+.quality_container {
+  text-align: center;
+  padding: 24px;
+  margin-top: 120px;
+  position: relative;
+  color: var(--light-cream-100);
+
+  &::after {
+    content: "";
+    background-color: var(--dark-greyblue-900);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 80%;
+    z-index: -1;
+    border-radius: 12px;
+  }
+  @media (min-width: $media-desktop) {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+  }
+}
+
+.quality_image_box {
+  max-height: 400px;
+  margin-bottom: 48px;
+  border-radius: 12px;
+  overflow: hidden;
+  img {
+    border-radius: 12px;
+    margin: auto;
+  }
+  @media (min-width: $media-desktop) {
+    grid-column: 2;
+    max-height: none;
+  }
+}
+.quality_text_content {
+  margin-bottom: 61px;
+  h2 {
+    font-size: var(--md-header-fs);
+    margin-bottom: 30px;
+  }
+  p {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: var(--md-body-fs);
+  }
+  @media (min-width: $media-desktop) {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 76px;
+    max-width: 540px;
+    margin: 80px auto 0;
+  }
+}
