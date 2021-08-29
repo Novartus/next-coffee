@@ -24,6 +24,9 @@ export const Navbar = () => {
         <Link href="/about">
           <a> About us</a>
         </Link>
+        <Link href="/">
+          <a> Create Subscription</a>
+        </Link>
       </div>
 
       {hamburgerClicked === true ? (
@@ -67,6 +70,15 @@ export const Navbar = () => {
               }}
             >
               About us
+            </a>
+          </Link>
+          <Link href="/">
+            <a
+              onClick={() => {
+                setHamburgerClicked(!hamburgerClicked);
+              }}
+            >
+              Create Subscription
             </a>
           </Link>
         </div>
