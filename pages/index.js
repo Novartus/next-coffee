@@ -1,7 +1,9 @@
 import Link from "next/link";
 import Collection from "../Components/Collection";
 import Meta from "../Components/Meta";
+import Why from "../Components/Why";
 import CoffeeCollectionData from "../data/coffee";
+import WhyData from "../data/why";
 import styles from "../styles/Home.module.scss";
 
 const Home = () => {
@@ -28,6 +30,22 @@ const Home = () => {
           <div className={styles.collection_card_container}>
             {CoffeeCollectionData.data.map((coffee, key) => (
               <Collection key={key} {...coffee} />
+            ))}
+          </div>
+        </section>
+
+        <section className={styles.why_container}>
+          <div className={styles.why_text_content}>
+            <h2>Why choose us?</h2>
+            <p>
+              Because we’re easy to work with. We take the work seriously, but
+              not ourselves. We’re not prickly, precious or pretentious.
+              <br />- abccopywriting
+            </p>
+          </div>
+          <div className={styles.why_card_container}>
+            {WhyData.data.map((data, key) => (
+              <Why key={key} {...data} />
             ))}
           </div>
         </section>

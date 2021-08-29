@@ -19,6 +19,9 @@ export const Footer = () => {
         <Link href="/about">
           <a>ABOUT US</a>
         </Link>
+        <Link href="/">
+          <a> Create Subscription</a>
+        </Link>
       </div>
       <div className={styles.social_container}>
         <Link href="/">

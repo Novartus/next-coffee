@@ -15,7 +15,7 @@ const Collection = ({ imageURL, title, description, altText }) => {
 };
 
 Collection.defaultProps = {
-  imageURL: "white-image",
+  imageURL: "/assets/data/coffee-bean-bag.png",
   title: "NextJS Coffee Shop",
   description: "We are coming soon !",
   altText: "Coffee Collection",
