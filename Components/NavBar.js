@@ -24,8 +24,8 @@ export const Navbar = () => {
         <Link href="/about">
           <a> About us</a>
         </Link>
-        <Link href="/">
-          <a> Create Subscription</a>
+        <Link href="/buy_coffee">
+          <a> Buy Coffee</a>
         </Link>
       </div>
 
@@ -72,13 +72,13 @@ export const Navbar = () => {
               About us
             </a>
           </Link>
-          <Link href="/">
+          <Link href="/buy_coffee">
             <a
               onClick={() => {
                 setHamburgerClicked(!hamburgerClicked);
               }}
             >
-              Create Subscription
+              Buy Coffee
             </a>
           </Link>
         </div>
