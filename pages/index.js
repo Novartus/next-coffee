@@ -1,10 +1,23 @@
 import Link from "next/link";
 import Collection from "../Components/Collection";
+import How from "../Components/How";
 import Meta from "../Components/Meta";
 import Why from "../Components/Why";
 import CoffeeCollectionData from "../data/coffee";
+import HowData from "../data/how";
 import WhyData from "../data/why";
 import styles from "../styles/Home.module.scss";
+
+const totalHowCards = () => {
+  const cards = [];
+  for (let i = 0; i < HowData.data.length - 1; i++) {
+    cards.push(
+      <div className={styles.line} key={i} />,
+      <div className={styles.circle} key={i + 2} />
+    );
+  }
+  return cards;
+};
 
 const Home = () => {
   return (
@@ -48,6 +61,26 @@ const Home = () => {
               <Why key={key} {...data} />
             ))}
           </div>
+        </section>
+
+        <section className={styles.how_container}>
+          <h2>How it works</h2>
+
+          <div className={styles.how_illustration}>
+            <div className={styles.circle} />
+            {totalHowCards()}
+          </div>
+
+          <div className={styles.how_card_container}>
+            {HowData.data.map((data, key) => (
+              <How key={key} {...data} />
+            ))}
+          </div>
+          <Link href="/buy_coffee">
+            <a>
+              <button className="button-primary">Buy Coffee</button>
+            </a>
+          </Link>
         </section>
       </main>
     </>

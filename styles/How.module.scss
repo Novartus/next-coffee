@@ -1,0 +1,32 @@
+@import "resolution";
+
+.container {
+  @include flex-column-center;
+  text-align: center;
+  margin-top: 56px;
+  max-width: 285px;
+
+  img {
+    margin-bottom: 56px;
+  }
+  @media (min-width: $media-tablet) {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+.text_content {
+  h3 {
+    font-size: var(--md-header-fs);
+    margin-bottom: 24px;
+  }
+  p {
+    font-size: var(--md-body-fs);
+  }
+}
+
+.number {
+  font-size: 72px;
+  color: var(--light-orange-200);
+  margin-bottom: 24px;
+}
