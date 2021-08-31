@@ -1,0 +1,128 @@
+@import "resolution";
+
+.how_container {
+  @include flex-column-center;
+  background-color: var(--dark-greyblue-900);
+  color: var(--light-cream-100);
+  border-radius: 12px;
+  padding: 24px 0 56px;
+  margin: 120px 0;
+  h2 {
+    color: var(--medium-grey-400);
+    margin: 96px 0 24px 0;
+    text-align: center;
+  }
+  button {
+    display: block;
+    margin-top: 79px;
+  }
+  @media (min-width: $media-tablet) {
+    align-items: flex-start;
+    margin: 120px 0 144px;
+    padding: 100px 40px 70px;
+    h2 {
+      margin: 144px 0 40px 0;
+    }
+  }
+  @media (min-width: $media-desktop) {
+    margin-top: 120px;
+    margin-bottom: 200px;
+    padding: 100px;
+    margin: 120px auto 200px;
+    max-width: 1280px;
+    h2 {
+      margin: 200px 0 80px 0;
+    }
+  }
+}
+
+.how_illustration {
+  display: none;
+  align-items: center;
+  width: 90%;
+  .circle {
+    width: 31px;
+    height: 31px;
+    border-radius: 50%;
+    border: 2px solid var(--dark-cyan-600);
+    background-color: transparent;
+  }
+  .line {
+    height: 2px;
+    width: 27vw;
+    background-color: var(--light-orange-200);
+  }
+  @media (min-width: $media-tablet) {
+    display: flex;
+  }
+  @media (min-width: $media-desktop) {
+    .line {
+      width: 350px;
+    }
+  }
+}
+
+.how_card_container {
+  @include flex-column-center;
+  @media (min-width: $media-tablet) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 30px;
+    align-items: flex-start;
+  }
+  @media (min-width: $media-desktop) {
+    grid-column-gap: 95px;
+  }
+}
+
+.buy_options_container {
+  display: flex;
+  margin-bottom: 120px;
+}
+
+.buy_options_menu {
+  display: none;
+  @media (min-width: $media-desktop) {
+    @include flex-column-center;
+    width: 25%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    color: var(--medium-grey-400);
+    margin: 0 24px 0 0;
+    min-width: 255px;
+    ul {
+      list-style: none;
+      font-size: 24px;
+      padding: 0 0 0 24px;
+      li {
+        padding-bottom: 24px;
+        border-bottom: 1px solid var(--medium-grey-400);
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
+
+.buy_options_card_container {
+  @include flex-column-center;
+  margin: 0 auto;
+  button {
+    margin-top: 56px;
+  }
+  @media (min-width: $media-tablet) {
+    .summary_container {
+      max-width: 689px;
+      padding: 27px 44px;
+    }
+  }
+  @media (min-width: $media-desktop) {
+    width: 75%;
+    .summary_container {
+      max-width: 730px;
+      padding: 47px 64px;
+    }
+    button {
+      margin-left: auto;
+    }
+  }
+}
