@@ -12,6 +12,7 @@
 }
 
 .logo {
+  color: white;
   max-width: 33px;
   max-height: 218px;
   @media (min-width: $media-tablet) {
@@ -47,10 +48,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
   margin: 0 auto;
-  width: 120px;
+  width: 140px;
   @media (min-width: $media-desktop) {
     margin: 0;
   }
+}
+
+.social_link {
+  color: white;
+  margin-bottom: 9px;
+  align-items: center;
 }

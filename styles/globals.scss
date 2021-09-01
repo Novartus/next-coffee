@@ -123,6 +123,25 @@ footer {
   }
 }
 
+.button-secondary {
+  width: 217px;
+  height: 56px;
+  background-color: var(--dark-greyblue-900);
+  color: var(--light-cream-100);
+  font-size: 18px;
+  transition: 0.2s all linear;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 18;
+  &:hover {
+    background-color: #000000;
+  }
+  &:disabled {
+    background-color: #be641e;
+  }
+}
+
 .white-image {
   background-image: url(/assets/shared/white-image.jpg);
   @media (min-width: $media-tablet) {
@@ -143,4 +162,19 @@ footer {
   background-clip: text;
   color: transparent;
   opacity: 0.7;
+}
+
+.li_selected {
+  color: var(--dark-greyblue-900);
+  border-bottom: 1px solid var(--dark-greyblue-900);
+  span {
+    color: var(--dark-cyan-600);
+  }
+}
+
+.mobile_only {
+  display: block;
+  @media (min-width: $media-tablet) {
+    display: none;
+  }
 }
