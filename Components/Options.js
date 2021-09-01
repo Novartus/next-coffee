@@ -27,8 +27,9 @@ const Options = ({ question, options, selected, setSelected }) => {
 
   // on initial page load open the first question
   useEffect(() => {
-    if (question === "How do you drink your coffee?") {
+    if (options[0].id === "Q1") {
       setModalToggle(true);
+      setDropDownClicked(true);
     }
   }, []);
 

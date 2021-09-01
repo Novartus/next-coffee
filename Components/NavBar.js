@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import styles from "../styles/NavBar.module.scss";
 import Link from "next/link";
+import { GiCoffeePot, GiHamburgerMenu } from "react-icons/gi";
+import { GrFormClose } from "react-icons/gr";
+import styles from "../styles/NavBar.module.scss";
 
 export const Navbar = () => {
   const [hamburgerClicked, setHamburgerClicked] = useState(false);
@@ -8,13 +10,9 @@ export const Navbar = () => {
   return (
     <header className={styles.container}>
       <Link href="/">
-        <img
-          className={styles.logo}
-          src="/assets/shared/logo.jpg"
-          alt="coffee logo"
-          width="236"
-          height="26"
-        />
+        <a>
+          <GiCoffeePot size={44} />
+        </a>
       </Link>
 
       <div className={styles.link_container}>
@@ -24,26 +22,18 @@ export const Navbar = () => {
         <Link href="/about">
           <a> About us</a>
         </Link>
-        <Link href="/buy_coffee">
+        <Link href="/buy-coffee">
           <a> Buy Coffee</a>
         </Link>
       </div>
 
       {hamburgerClicked === true ? (
-        <img
-          src="/assets/icons/hamburger-menu-close.svg"
-          alt="hamburger icon"
-          width="16"
-          height="16"
+        <GrFormClose
           className={styles.hamburger}
           onClick={() => setHamburgerClicked(!hamburgerClicked)}
         />
       ) : (
-        <img
-          src="/assets/icons/hamburger-menu.svg"
-          alt="hamburger icon"
-          width="16"
-          height="16"
+        <GiHamburgerMenu
           className={styles.hamburger}
           onClick={() => setHamburgerClicked(!hamburgerClicked)}
         />
@@ -72,7 +62,7 @@ export const Navbar = () => {
               About us
             </a>
           </Link>
-          <Link href="/buy_coffee">
+          <Link href="/buy-coffee">
             <a
               onClick={() => {
                 setHamburgerClicked(!hamburgerClicked);

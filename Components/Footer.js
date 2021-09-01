@@ -1,17 +1,20 @@
 import Link from "next/link";
-import Image from "next/image";
+import { GiCoffeePot } from "react-icons/gi";
+import {
+  RiFacebookCircleLine,
+  RiInstagramLine,
+  RiTwitterLine,
+} from "react-icons/ri";
 import styles from "../styles/Footer.module.scss";
 
 export const Footer = () => {
   return (
     <footer className={styles.container}>
-      <img
-        className={styles.logo}
-        src="/assets/shared/logo.jpg"
-        alt="coffee logo"
-        width="236"
-        height="26"
-      />
+      <Link href="/">
+        <a>
+          <GiCoffeePot className={styles.logo} size={32} />
+        </a>
+      </Link>
       <div className={styles.links_container}>
         <Link href="/">
           <a>HOME</a>
@@ -26,32 +29,17 @@ export const Footer = () => {
       <div className={styles.social_container}>
         <Link href="/">
           <a>
-            <Image
-              src="/assets/icons/icon-facebook.svg"
-              alt="facebook"
-              width="24"
-              height="24"
-            />
+            <RiFacebookCircleLine size={32} className={styles.social_link} />
           </a>
         </Link>
         <Link href="/">
           <a>
-            <Image
-              src="/assets/icons/icon-twitter.svg"
-              alt="twitter"
-              width="24"
-              height="24"
-            />
+            <RiInstagramLine size={32} className={styles.social_link} />
           </a>
         </Link>
         <Link href="/">
           <a>
-            <Image
-              src="/assets/icons/icon-instagram.svg"
-              alt="instagram"
-              width="24"
-              height="24"
-            />
+            <RiTwitterLine size={32} className={styles.social_link} />
           </a>
         </Link>
       </div>
