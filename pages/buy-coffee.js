@@ -4,6 +4,7 @@ import Meta from "../Components/Meta";
 import Hero from "../Components/Hero";
 import How from "../Components/How";
 import Options from "../Components/Options";
+import PaymentModal from "../Components/Payment";
 import HowData from "../data/how";
 import BuyOptionsData from "../data/buy_options";
 import styles from "../styles/Buy_coffee.module.scss";
@@ -40,6 +41,7 @@ export default function Buy_coffee() {
   const [showClearAll, setShowClearAll] = useState(false);
   const [canBuy, setCanBuy] = useState(false);
   const [openSummaryModal, setOpenSummaryModal] = useState(false);
+  const [openPaymentModal, setOpenPaymentModal] = useState(false);
 
   useEffect(() => {
     if (JSON.stringify(coffee) !== JSON.stringify(result) && !canBuy) {
@@ -147,9 +149,17 @@ export default function Buy_coffee() {
                 </p>
                 <div className={styles.modal_summary_checkout}>
                   <p>$49.99</p>
-                  <button className="button-primary">Checkout</button>
+                  <button
+                    className="button-primary"
+                    onClick={() => setOpenPaymentModal(true)}
+                  >
+                    Checkout
+                  </button>
                 </div>
-                <button className="button-primary mobile_only">
+                <button
+                  className="button-primary mobile_only"
+                  onClick={() => setOpenPaymentModal(true)}
+                >
                   Checkout - $49.99
                 </button>
                 <button
@@ -162,6 +172,11 @@ export default function Buy_coffee() {
                 </button>
               </div>
             </div>
+          </div>
+        )}
+        {openPaymentModal && (
+          <div className={styles.modal_summary_page_container}>
+            <PaymentModal />
           </div>
         )}
       </main>
