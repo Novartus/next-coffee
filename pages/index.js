@@ -76,7 +76,7 @@ const Home = () => {
               <How key={key} {...data} />
             ))}
           </div>
-          <Link href="/buy_coffee">
+          <Link href="/buy-coffee">
             <a>
               <button className="button-primary">Buy Coffee</button>
             </a>
