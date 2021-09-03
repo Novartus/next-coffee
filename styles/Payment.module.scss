@@ -1,0 +1,143 @@
+@import "resolution";
+
+.modal_payment_page_container {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include flex-column-center;
+  z-index: 5;
+}
+.modal_payment_container {
+  width: 90%;
+  height: 75%;
+  max-height: 697px;
+  border-radius: 12px;
+  background-color: var(--light-cream-100);
+  overflow-y: scroll;
+  @media (min-width: $media-tablet) {
+    width: 540px;
+    height: 697px;
+    overflow-y: hidden;
+  }
+}
+
+.modal_close {
+  margin-left: auto;
+  display: flex;
+  margin-right: 0;
+  cursor: pointer;
+  a {
+    font-size: 20px;
+    max-width: 50px;
+    margin-bottom: 15px;
+  }
+}
+
+.modal_payment_header {
+  background-color: var(--dark-greyblue-900);
+  color: var(--light-cream-100);
+  padding: 28px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h2 {
+    font-size: 29px;
+  }
+  @media (min-width: $media-tablet) {
+    padding: 48px 56px;
+    h2 {
+      font-size: 40px;
+    }
+  }
+}
+
+.modal_payment_content {
+  padding: 28px 24px;
+  @include flex-column-center;
+
+  label {
+    width: 180px;
+    clear: left;
+    text-align: right;
+    padding-right: 10px;
+    font-size: 18px;
+  }
+
+  input {
+    color: var(--dark-greyblue-900);
+    height: 35px;
+    outline: none;
+    font-size: 25px;
+    border-style: none;
+  }
+
+  .modal_payment_details {
+    margin: 0 15px 30px;
+    padding: 0;
+    border-style: none;
+    display: -ms-flexbox;
+    flex-flow: row wrap;
+    justify-content: space-between;
+  }
+  @media (min-width: $media-tablet) {
+    padding: 48px 56px;
+    .modal_payment_details {
+      font-size: 15px;
+      margin-bottom: 47px;
+    }
+  }
+}
+
+.modal_payment_checkout {
+  button {
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 25px;
+    font-family: "Fraunces", sans-serif;
+    font-weight: 900;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    cursor: pointer;
+  }
+  width: calc(100% - 30px);
+  height: 40px;
+  margin: 0 15px;
+  background-color: var(--yellow-thunder-500);
+  border-radius: 20px;
+  text-transform: uppercase;
+  @media (min-width: $media-tablet) {
+    display: flex;
+  }
+}
+
+.modal_content {
+  padding: 28px 24px;
+  @include flex-column-center;
+
+  .modal_plan {
+    font-size: 24px;
+    text-align: center;
+    line-height: 45px;
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    margin-bottom: 10px;
+    span {
+      color: var(--dark-cyan-600);
+    }
+  }
+  .modal_details {
+    margin-bottom: 24px;
+  }
+  @media (min-width: $media-tablet) {
+    padding: 48px 56px;
+    .modal_details {
+      font-size: 15px;
+      margin-bottom: 47px;
+    }
+  }
+}
