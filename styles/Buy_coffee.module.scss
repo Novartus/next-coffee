@@ -175,16 +175,17 @@
   @include flex-column-center;
   z-index: 5;
 }
+
 .modal_summary_container {
   width: 90%;
   height: 75%;
-  max-height: 597px;
+  max-height: 697px;
   border-radius: 12px;
   background-color: var(--light-cream-100);
   overflow-y: scroll;
   @media (min-width: $media-tablet) {
     width: 540px;
-    height: 597px;
+    height: 697px;
     overflow-y: hidden;
   }
 }

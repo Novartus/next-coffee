@@ -5,6 +5,7 @@ import {
   useElements,
   useStripe,
 } from "@stripe/react-stripe-js";
+import { GiCancel } from "react-icons/gi";
 import { getStripe } from "../utils/stripe-client";
 import styles from "../styles/Payment.module.scss";
 
@@ -40,7 +41,7 @@ const Field = ({
   value,
   onChange,
 }) => (
-  <div className={styles.modal_summary_details}>
+  <div className={styles.modal_payment_details}>
     <label htmlFor={id}>{label}</label>
     <input
       id={id}
@@ -80,7 +81,7 @@ const ErrorMessage = ({ children }) => (
   </div>
 );
 
-const CheckoutForm = () => {
+const CheckoutForm = ({ onClick }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -127,24 +128,45 @@ const CheckoutForm = () => {
   };
 
   return paymentMethod ? (
-    <div className={styles.modal_summary_page_container}>
-      <div className={styles.modal_summary_container}>
-        <div className={styles.modal_summary_header}>
+    <div className={styles.modal_payment_page_container}>
+      <div className={styles.modal_payment_container}>
+        <div className={styles.modal_payment_header}>
           <h2>Payment successful</h2>
         </div>
-        <p>
-          Thanks for trying Stripe Elements. No money was charged, but we
-          generated a PaymentMethod: {paymentMethod.id}
-        </p>
+        <div className={styles.modal_content}>
+          <p className={styles.modal_plan}>
+            Thanks for buying from
+            <br />
+            <span> Next Coffee Shop </span>.
+            <br />
+            <br />
+            No money was charged, but we generated a Payment Method : <br />
+            <span> {paymentMethod.id?.slice(0, -3)}</span>
+          </p>
+        </div>
+        <button
+          className="button-secondary"
+          style={{
+            textAlign: "center",
+            margin: "0 auto",
+            display: "block",
+          }}
+          onClick={onClick}
+        >
+          Close
+        </button>
       </div>
     </div>
   ) : (
-    <div className={styles.modal_summary_page_container}>
-      <div className={styles.modal_summary_container}>
-        <div className={styles.modal_summary_header}>
+    <div className={styles.modal_payment_page_container}>
+      <div className={styles.modal_payment_container}>
+        <div className={styles.modal_payment_header}>
           <h2>Checkout Summary</h2>
+          <div className={styles.modal_close} onClick={onClick}>
+            <GiCancel size={40} />
+          </div>
         </div>
-        <div className={styles.modal_summary_content}>
+        <div className={styles.modal_payment_content}>
           <form onSubmit={handleSubmit}>
             <Field
               label="Name"
@@ -191,7 +213,7 @@ const CheckoutForm = () => {
                 });
               }}
             />
-            <div className={styles.modal_summary_details}>
+            <div className={styles.modal_payment_details}>
               <CardField
                 onChange={(e) => {
                   setError(e.error);
@@ -201,7 +223,7 @@ const CheckoutForm = () => {
             </div>
             {error && <ErrorMessage>{error.message}</ErrorMessage>}
             <p>$49.99</p>
-            <div className={styles.modal_summary_checkout}>
+            <div className={styles.modal_payment_checkout}>
               <SubmitButton
                 processing={processing}
                 error={error}
@@ -221,11 +243,11 @@ const CheckoutForm = () => {
 // recreating the `Stripe` object on every render.
 const stripePromise = getStripe();
 
-const Payment = () => {
+const Payment = ({ onClick }) => {
   return (
     <div>
       <Elements stripe={stripePromise}>
-        <CheckoutForm />
+        <CheckoutForm onClick={onClick} />
       </Elements>
     </div>
   );

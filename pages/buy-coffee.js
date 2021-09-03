@@ -43,6 +43,11 @@ export default function Buy_coffee() {
   const [openSummaryModal, setOpenSummaryModal] = useState(false);
   const [openPaymentModal, setOpenPaymentModal] = useState(false);
 
+  const closeModel = () => {
+    setOpenSummaryModal(false);
+    setOpenPaymentModal(false);
+  };
+
   useEffect(() => {
     if (JSON.stringify(coffee) !== JSON.stringify(result) && !canBuy) {
       const coffeeValues = Object.values(coffee);
@@ -176,7 +181,7 @@ export default function Buy_coffee() {
         )}
         {openPaymentModal && (
           <div className={styles.modal_summary_page_container}>
-            <PaymentModal />
+            <PaymentModal onClick={closeModel} />
           </div>
         )}
       </main>

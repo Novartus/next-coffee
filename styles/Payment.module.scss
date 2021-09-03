@@ -1,6 +1,6 @@
 @import "resolution";
 
-.modal_summary_page_container {
+.modal_payment_page_container {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.7);
@@ -10,21 +10,33 @@
   @include flex-column-center;
   z-index: 5;
 }
-.modal_summary_container {
+.modal_payment_container {
   width: 90%;
   height: 75%;
-  max-height: 597px;
+  max-height: 697px;
   border-radius: 12px;
   background-color: var(--light-cream-100);
   overflow-y: scroll;
   @media (min-width: $media-tablet) {
     width: 540px;
-    height: 597px;
+    height: 697px;
     overflow-y: hidden;
   }
 }
 
-.modal_summary_header {
+.modal_close {
+  margin-left: auto;
+  display: flex;
+  margin-right: 0;
+  cursor: pointer;
+  a {
+    font-size: 20px;
+    max-width: 50px;
+    margin-bottom: 15px;
+  }
+}
+
+.modal_payment_header {
   background-color: var(--dark-greyblue-900);
   color: var(--light-cream-100);
   padding: 28px 24px;
@@ -42,7 +54,7 @@
   }
 }
 
-.modal_summary_content {
+.modal_payment_content {
   padding: 28px 24px;
   @include flex-column-center;
 
@@ -62,7 +74,7 @@
     border-style: none;
   }
 
-  .modal_summary_details {
+  .modal_payment_details {
     margin: 0 15px 30px;
     padding: 0;
     border-style: none;
@@ -72,14 +84,14 @@
   }
   @media (min-width: $media-tablet) {
     padding: 48px 56px;
-    .modal_summary_details {
+    .modal_payment_details {
       font-size: 15px;
       margin-bottom: 47px;
     }
   }
 }
 
-.modal_summary_checkout {
+.modal_payment_checkout {
   button {
     padding: 0;
     border: none;
@@ -100,5 +112,32 @@
   text-transform: uppercase;
   @media (min-width: $media-tablet) {
     display: flex;
+  }
+}
+
+.modal_content {
+  padding: 28px 24px;
+  @include flex-column-center;
+
+  .modal_plan {
+    font-size: 24px;
+    text-align: center;
+    line-height: 45px;
+    font-family: "Fraunces", serif;
+    font-weight: 900;
+    margin-bottom: 10px;
+    span {
+      color: var(--dark-cyan-600);
+    }
+  }
+  .modal_details {
+    margin-bottom: 24px;
+  }
+  @media (min-width: $media-tablet) {
+    padding: 48px 56px;
+    .modal_details {
+      font-size: 15px;
+      margin-bottom: 47px;
+    }
   }
 }
