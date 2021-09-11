@@ -32,7 +32,7 @@ const Home = () => {
               Good communication is just as stimulating as black coffee, and
               just as hard to sleep after.
             </p>
-            <Link href="/">
+            <Link href="/about">
               <button className="button-primary">Find Out More</button>
             </Link>
           </div>

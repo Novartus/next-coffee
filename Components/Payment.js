@@ -42,11 +42,12 @@ const Field = ({
   onChange,
 }) => (
   <div className={styles.modal_payment_details}>
-    <label htmlFor={id}>{label}</label>
     <input
       id={id}
       type={type}
       placeholder={placeholder}
+      onFocus={(e) => (e.target.placeholder = "")}
+      onBlur={(e) => (e.target.placeholder = placeholder)}
       required={required}
       autoComplete={autoComplete}
       value={value}
@@ -81,7 +82,7 @@ const ErrorMessage = ({ children }) => (
   </div>
 );
 
-const CheckoutForm = ({ onClick }) => {
+const CheckoutForm = ({ onClick, amount }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -162,9 +163,11 @@ const CheckoutForm = ({ onClick }) => {
       <div className={styles.modal_payment_container}>
         <div className={styles.modal_payment_header}>
           <h2>Checkout Summary</h2>
-          <div className={styles.modal_close} onClick={onClick}>
-            <GiCancel size={40} />
-          </div>
+          {!processing && (
+            <div className={styles.modal_close} onClick={onClick}>
+              <GiCancel size={40} />
+            </div>
+          )}
         </div>
         <div className={styles.modal_payment_content}>
           <form onSubmit={handleSubmit}>
@@ -222,7 +225,7 @@ const CheckoutForm = ({ onClick }) => {
               />
             </div>
             {error && <ErrorMessage>{error.message}</ErrorMessage>}
-            <p>$49.99</p>
+            <p>${amount}</p>
             <div className={styles.modal_payment_checkout}>
               <SubmitButton
                 processing={processing}
@@ -243,11 +246,11 @@ const CheckoutForm = ({ onClick }) => {
 // recreating the `Stripe` object on every render.
 const stripePromise = getStripe();
 
-const Payment = ({ onClick }) => {
+const Payment = ({ onClick, amount }) => {
   return (
     <div>
       <Elements stripe={stripePromise}>
-        <CheckoutForm onClick={onClick} />
+        <CheckoutForm onClick={onClick} amount={amount} />
       </Elements>
     </div>
   );

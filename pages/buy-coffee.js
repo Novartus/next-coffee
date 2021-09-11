@@ -42,6 +42,7 @@ export default function Buy_coffee() {
   const [canBuy, setCanBuy] = useState(false);
   const [openSummaryModal, setOpenSummaryModal] = useState(false);
   const [openPaymentModal, setOpenPaymentModal] = useState(false);
+  const [checkOutAmount, setCheckOutAmount] = useState(0);
 
   const closeModel = () => {
     setOpenSummaryModal(false);
@@ -55,13 +56,41 @@ export default function Buy_coffee() {
     }
   }, [coffee, result, canBuy]);
 
+  useEffect(() => {
+    if (canBuy) {
+      const buyData = BuyOptionsData.data;
+      const bean = buyData[1].data.find((data) => {
+        return data.value === coffee["Q2"];
+      });
+      const beanWeight = buyData[2].data.find((data) => {
+        return data.value === coffee["Q3"];
+      });
+
+      const grindFees = buyData[3].data.find((data) => {
+        return data.value === coffee["Q4"];
+      });
+
+      const selectedBeanPrice = bean.price ? bean.price : 0;
+      const selectedBeanWeight = beanWeight.weight ? beanWeight.weight : 0;
+      const selectedGrindFees = grindFees.fees ? grindFees.fees : 0;
+
+      setCheckOutAmount(
+        (
+          checkOutAmount +
+          selectedBeanPrice * selectedBeanWeight +
+          selectedGrindFees
+        ).toFixed(2)
+      );
+    }
+  }, [coffee, canBuy]);
+
   return (
     <>
       <Meta />
       <main>
         <Hero
           title="Buy Coffee"
-          description="We are best in business buy fresh and rich coffee from Us!"
+          description="Regardless of whether it's 10 bean bags for a nearby coffee shop or 10,000 immunizations for an abroad center, there's a ton riding on your capacity to convey and follow a bundle."
         />
 
         <section className={styles.how_container}>
@@ -102,6 +131,7 @@ export default function Buy_coffee() {
                   setCoffee(defaultValues);
                   setShowClearAll(false);
                   setCanBuy(false);
+                  setCheckOutAmount(0);
                 }}
               >
                 <GiCancel size={30} />
@@ -113,6 +143,7 @@ export default function Buy_coffee() {
                 key={key}
                 question={option.question}
                 options={option.data}
+                optionType={option?.type}
                 setSelected={(value) => {
                   setCoffee({ ...coffee, ...value });
                 }}
@@ -153,7 +184,7 @@ export default function Buy_coffee() {
                   plan selection.
                 </p>
                 <div className={styles.modal_summary_checkout}>
-                  <p>$49.99</p>
+                  <p>${checkOutAmount}</p>
                   <button
                     className="button-primary"
                     onClick={() => setOpenPaymentModal(true)}
@@ -165,7 +196,7 @@ export default function Buy_coffee() {
                   className="button-primary mobile_only"
                   onClick={() => setOpenPaymentModal(true)}
                 >
-                  Checkout - $49.99
+                  Checkout - ${checkOutAmount}
                 </button>
                 <button
                   className="button-secondary"
@@ -181,7 +212,7 @@ export default function Buy_coffee() {
         )}
         {openPaymentModal && (
           <div className={styles.modal_summary_page_container}>
-            <PaymentModal onClick={closeModel} />
+            <PaymentModal onClick={closeModel} amount={checkOutAmount} />
           </div>
         )}
       </main>

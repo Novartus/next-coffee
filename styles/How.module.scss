@@ -21,6 +21,8 @@
     margin-bottom: 24px;
   }
   p {
+    text-align: justify;
+    text-justify: inter-word;
     font-size: var(--md-body-fs);
   }
 }
