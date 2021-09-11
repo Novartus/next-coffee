@@ -58,20 +58,14 @@
   padding: 28px 24px;
   @include flex-column-center;
 
-  label {
-    width: 180px;
-    clear: left;
-    text-align: right;
-    padding-right: 10px;
-    font-size: 18px;
-  }
-
   input {
     color: var(--dark-greyblue-900);
+    text-align: center;
     height: 35px;
     outline: none;
     font-size: 25px;
     border-style: none;
+    border-radius: 25px;
   }
 
   .modal_payment_details {
@@ -81,6 +75,19 @@
     display: -ms-flexbox;
     flex-flow: row wrap;
     justify-content: space-between;
+
+    ::-webkit-input-placeholder {
+      color: gray;
+    }
+    ::-moz-placeholder {
+      color: gray;
+    }
+    :-ms-input-placeholder {
+      color: gray;
+    }
+    :-moz-placeholder {
+      color: gray;
+    }
   }
   @media (min-width: $media-tablet) {
     padding: 48px 56px;

@@ -28,24 +28,28 @@ const BuyOptionsData = {
     {
       option: "Bean Type",
       question: "What kind of beans do you use ?",
+      type: "bean",
       data: [
         {
           id: "Q2",
           value: "Robusta",
           description:
             "The coffee caniphora species is also particularly tolerant of its environment.",
+          price: 2.03,
         },
         {
           id: "Q2",
           value: "Liberica",
           description:
-            "Liberica coffee beans are a rare treat. They’re grown in very specific climates with production being far too scarce.",
+            "Liberica coffee beans are a rare treat. They’re grown in very specific climates.",
+          price: 2.47,
         },
         {
           id: "Q2",
           value: "Excelsa",
           description:
             "Excelsa is technically a member of the Liberica family, but its species is actually incredibly distinct.",
+          price: 3.57,
         },
       ],
     },
@@ -56,21 +60,24 @@ const BuyOptionsData = {
       data: [
         {
           id: "Q3",
-          value: "500g",
-          description:
-            "Perfect for the solo drinker. Yields about 24 delicious cups.",
-        },
-        {
-          id: "Q3",
           value: "1000g",
           description:
-            "Perfect option for a couple. Yields about 50 delectable cups.",
+            "Perfect for the solo drinker. Yields about 48 delicious cups.",
+          weight: 1,
         },
         {
           id: "Q3",
-          value: "1500g",
+          value: "2000g",
           description:
-            "Perfect for offices and events. Yields about 95 delightful cups.",
+            "Perfect option for a couple. Yields about 100 delectable cups.",
+          weight: 2,
+        },
+        {
+          id: "Q3",
+          value: "2500g",
+          description:
+            "Perfect for offices and events. Yields about 200 delightful cups.",
+          weight: 2.5,
         },
       ],
     },
@@ -78,24 +85,28 @@ const BuyOptionsData = {
     {
       option: "Grind Options",
       question: "How you want us to grind them ?",
+      type: "grind",
       data: [
         {
           id: "Q4",
           value: "Whole Bean",
           description:
             "Best choice if you cherish the full sensory experience.",
+          fees: 1.6,
         },
         {
           id: "Q4",
           value: "AeroPress",
           description:
-            "The AeroPress is particularly capable and flexible with a variety of grind sizes, water temperatures, and contact times.",
+            "This is flexible with a variety of grind sizes, water temperatures, and contact times.",
+          fees: 1.7,
         },
         {
           id: "Q4",
           value: "Siphon",
           description:
-            "This method calls for a medium-fine grind size. A siphon typically has two chambers, with the first filled with water.",
+            "This method calls for a medium-fine grind size. A siphon typically has two chambers.",
+          fees: 1.4,
         },
       ],
     },

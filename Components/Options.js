@@ -5,7 +5,7 @@ import {
 } from "react-icons/io";
 import styles from "../styles/Options.module.scss";
 
-const OptionCard = ({ option, selected, setSelected }) => {
+const OptionCard = ({ option, selected, setSelected, optionType }) => {
   const data = { [option.id]: option.value };
   return (
     <div
@@ -18,11 +18,14 @@ const OptionCard = ({ option, selected, setSelected }) => {
     >
       <h4>{option.value}</h4>
       <p>{option.description}</p>
+      <br />
+      {optionType === "bean" && <h3>Price: ${option.price}/kg</h3>}
+      {optionType === "grind" && <h3>Fees: ${option.fees}</h3>}
     </div>
   );
 };
 
-const Options = ({ question, options, selected, setSelected }) => {
+const Options = ({ question, options, selected, setSelected, optionType }) => {
   const [modalToggle, setModalToggle] = useState(false);
 
   // on initial page load open the first question
@@ -58,6 +61,7 @@ const Options = ({ question, options, selected, setSelected }) => {
           <div className={styles.options_container}>
             {options.map((option, key) => (
               <OptionCard
+                optionType={optionType}
                 setSelected={setSelected}
                 key={key}
                 option={option}
